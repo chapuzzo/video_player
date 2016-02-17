@@ -7,9 +7,10 @@
     "angular-route": "^1.5.0",
     "body-parser": "^1.15.0",
     "errorhandler": "^1.4.3",
-    "express": "^4.1.2",
-    "jade": "^0.31.2",
-    "method-override": "^1.0.2",
-    "morgan": "^1.6.1"
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "method-override": "^2.3.5",
+    "morgan": "^1.6.1",
+    "video.js": "^5.7.1"
   }
 }

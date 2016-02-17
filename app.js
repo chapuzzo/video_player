@@ -33,6 +33,7 @@ var env = process.env.NODE_ENV || 'development';
 
 app.use('/static', express.static(__dirname + '/node_modules/angular'));
 app.use('/static', express.static(__dirname + '/node_modules/angular-route'));
+app.use('/static', express.static(__dirname + '/node_modules/video.js/dist'));
 
 // development only
 if (env === 'development') {
@@ -53,6 +54,9 @@ if (env === 'production') {
 // Routes
 
 app.get('/', routes.index);
+app.get('/video', function(req, res){
+  res.sendFile(path.join(__dirname, 'views', 'video.html'));
+});
 app.get('/partials/:name', routes.partials);
 
 // JSON API

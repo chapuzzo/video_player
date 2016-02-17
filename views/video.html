@@ -1,0 +1,60 @@
+<head>
+  <link href="/static/video-js.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- class="video-js" controls preload="auto" width="640" height="264" -->
+  <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="http://vcord-zencoder-test.s3.amazonaws.com/thumbs/10975590-6e14-4aa4-bbae-d1398d73a6b4.png">
+    <source src="http://vcord-zencoder-test.s3.amazonaws.com/converted/10975590-6e14-4aa4-bbae-d1398d73a6b4.webm" type='video/webm'>
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+    </p>
+  </video>
+  <button onclick="changeVideo()">XXX</button>
+
+  <script src="/static/video.js"></script>
+  <!-- // <script src="/static/videojs-playlist.js"></script> -->
+
+  <script type="text/javascript">
+    var myPlayer,
+      changeVideo;
+    videojs("my-video", {width:300, height:300*16/9, controls: false}, function(){
+      myPlayer = this;
+      this.on('ended', function(){
+        myPlayer.src({"type":"video/webm", "src":"http://vcord-zencoder-test.s3.amazonaws.com/converted/75b3ee3e-126f-4a39-beb4-5f0151e51e6d.webm"});
+        myPlayer.play();
+        myPlayer.off('ended');
+      });
+    });
+
+    function changeVideo(){
+      myPlayer.play();
+    }
+  </script> 
+
+  <script type="text/javascript">
+
+  // var player = videojs('my-video');
+
+  // player.playlist([{
+  //   sources: [{
+  //     src: 'http://vcord-zencoder-test.s3.amazonaws.com/converted/10975590-6e14-4aa4-bbae-d1398d73a6b4.webm',
+  //     type: 'video/webm'
+  //   }],
+  //   poster: 'http://vcord-zencoder-test.s3.amazonaws.com/thumbs/10975590-6e14-4aa4-bbae-d1398d73a6b4.png'
+  // }, {
+  //   sources: [{
+  //     src: 'http://vcord-zencoder-test.s3.amazonaws.com/converted/75b3ee3e-126f-4a39-beb4-5f0151e51e6d.webm',
+  //     type: 'video/webm'
+  //   }],
+  //   poster: 'http://vcord-zencoder-test.s3.amazonaws.com/thumbs/75b3ee3e-126f-4a39-beb4-5f0151e51e6d.png'
+  // }]);
+
+  // // Play through the playlist automatically.
+  // player.playlist.autoadvance(0);
+
+  </script>
+</body>
